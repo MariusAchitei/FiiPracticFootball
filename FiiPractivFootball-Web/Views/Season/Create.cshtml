@@ -1,0 +1,40 @@
+﻿@model FiiPracticFootball.Repositories.Dtos.SeasonCreate
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SeasonCreate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Edition" class="control-label"></label>
+                <input asp-for="Edition" class="form-control" />
+                <span asp-validation-for="Edition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeagueId" class="control-label">League:</label>
+                <select asp-for="LeagueId">
+                    <option selected disabled value="not selected"></option>
+                    @foreach(var league in ViewBag.leagues){
+                        <option value="@league.Id">@league.Name</option>     
+                    }
+                </select>
+                <span asp-validation-for="LeagueId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

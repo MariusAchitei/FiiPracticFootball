@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "ShowMatches";
+}
+
+<style>
+    h5{
+        text-align: center;
+    }
+    .flag {
+        height: 50px;
+        width: 100px;
+    }
+    .team-name{
+        text-align: center;
+    }
+    .round-row{
+        max-height: 15px;
+        background-color: white !important;
+    }
+    .logo-wrapper{
+        height: 50px; 
+        width: 40px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        margin:auto;
+    }
+    .team-logo{
+        height: 90%; 
+        width: 90%; 
+        margin-top: auto; 
+        object-fit: cover;
+    }
+    .team-name a{
+        color:white;
+        text-decoration:none;
+    }
+</style>
+
+<h1>ShowMatches</h1>
+
+<div class="table-wrapper row-10">
+
+    <table class="table table-dark table-hover w-50">
+        <thead>
+            <tr>
+                <th scope="col">date</th>
+                <th scope="col" class="team-name">host</th>
+                <th scope="col" class="host-logo"></th>
+                <th scope="col" class="host-score"></th>
+                <th scope="col" class="visit-score"></th>
+                <th scope="col" class="visit-logo"></th>
+                <th scope="col" class="team-name"</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int currentRound = 0;
+            }
+            @foreach(var match in ViewBag.matches){
+                @if (currentRound != match.Round)
+                {
+                    currentRound = match.Round;
+                    <tr class="round-row">
+                        <td colspan="7"><h5>ETAPA @match.Round</h5></td>
+                    </tr>
+                        
+                }
+        <tr style="max-height: 10px;">
+            <td>@match.Date</td>
+            <td class="team-name"><a href="/Match/Details/@match.Id">@match.Host.Name</a></td>
+            <td>
+                <div class="logo-wrapper">
+                    <img class="team-logo" src="@match.Host.Logo" alt="@match.Host.Name">
+                </div>
+            </td>
+            <td>@(match.HostScore!=null ? match.HostScore : "-")</td>
+            <td>@(match.VisitScore!=null ? match.VisitScore : "-")</td>
+            <td>
+                <div class="logo-wrapper">
+                    <img class="team-logo" src="@match.Visit.Logo" alt="@match.Visit.Name">
+                </div>
+            </td>
+            <td class="team-name"><a href="/Match/Details/@match.Id">@match.Visit.Name</a></td>
+            @if (ViewBag.user.Admin == true)
+            {
+                <td>
+                        <form action="/Match/Simulate/">
+                            <input style="display:none" name="matchId" value="@match.Id" />
+                            <button class="btn-sm btn-secondary">
+                                Simulate
+                            </button>
+                        </form>
+                </td>
+            }
+        </tr>
+    }
+    </tbody>
+    </table>
+  </div>
+
+

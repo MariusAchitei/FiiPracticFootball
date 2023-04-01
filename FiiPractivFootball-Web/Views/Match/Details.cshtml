@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<link rel="stylesheet" href="/timeline.css" />
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<style>
+    .list,
+    h5 {
+        color: black;
+    }
+
+    a,
+    p {
+        color: black;
+    }
+
+    .tabela {
+        /* max-height: 90vh; */
+        /* max-width: 700px; */
+    }
+
+    .sub-off {
+        color: gray;
+        font-size: small;
+    }
+</style>
+
+<h1>Details</h1>
+
+<a href="/Season/Details/@Model.Id">
+    <button class="btn btn-primary">Back</button>
+</a>
+
+@if(Model.Status==true){
+    <h2>
+        <a href="/matches/Host/@Model.Id">@Model.Host.Name</a> 
+        vs
+        <a href="/matches/Visit/@Model.Id">@Model.Visit.Name</a>
+    </h2>
+}
+else
+{
+    @if (ViewBag.user.Admin == true)
+    {
+        <a href="/Match/Edit/@Model.Id">
+            <button class="btn btn-warning">Add Result</button>
+        </a>
+        <form action="/Match/Simulate/">
+            <input style="display:none" name="matchId" value="@Model.Id" />
+            <button class="btn-sm btn-secondary">
+                Simulate
+            </button>
+        </form>
+    }
+}
+
+    <div class="tabela">
+        <div class="competitie">
+        <h2>@(Model.LeagueName!= "" ? Model.LeagueName : "Competitie")<span>(@Model.Round)</span></h2>
+        </div>
+        <div class="status1">
+            @if(Model.Status){
+            <div><span>Meci terminat</span></div>
+            } else {
+            <div><span>@Model.Date</span></div>
+            }
+        </div>
+        <div class="middle">
+            <section class="scor-echipa1">
+                <div>
+                    <div class="team-score">
+                        <div><span>@(Model.HostScore != null ? Model.HostScore : '-')</span></div>
+                    </div>
+                    <div class="team-logo">
+                        <a href="/teams/<%= Model.Host._id %> "><img src="@Model.Host.Logo" alt="@Model.Host.Name" /></a>
+                    </div>
+                </div>
+                <span class="tabelaScor">@Model.Host.Name</span>
+            </section>
+            <section class="scor-echipa2">
+                <div>
+                    <div class="team-score">
+                        <div><span>@(Model.VisitScore!=null ? Model.VisitScore : '-')</span></div>
+                    </div>
+                    <div class="team-logo">
+                        <a href="/teams/<%= Model.Visit._id %> "><img src="@Model.Visit.Logo alt="@Model.Visit.Name" /></a>
+                    </div>
+                </div>
+                <span class="tabelaScor">@Model.Visit.Name</span>
+            </section>
+        </div>
+        <div class="status-ht">
+            <div @(Model.Host.Value>Model.Visit.Value ? "class=value" : ' ' )>
+              <span>@(Model.Host.Value!= 0 ? Model.Host.Value : "no data")</span>
+            </div>
+            <p>Value</p>
+            <div @(100 > Model.Host.Value ? "class=value" : ' ')>
+                <span>@(Model.Visit.Value != 0 ? Model.Visit.Value : "no data")</span>
+            </div>
+        </div>
+        <div class="goluri">
+            <div class="goluri-stanga">
+                <ul>
+                    <li>marcator.Name + time</li>
+                </ul>
+            </div>
+            <div class="goluri-dreapta">
+                <ul>
+                    <li>marcator.Name + time</li>
+                </ul>
+            </div>
+        </div>
+        @if (Model.Status){
+            <div class="afisare-optiuni">
+                <button class="btn btn-dark">Events</button>
+                <button class="btn btn-dark">echipele de start</button>
+            </div>
+            }
+    </div>
+    <hr>
+    <ul class="lists events">
+        <div class="pauza-separator">Repriza 1</div>
+            <li>
+                <div class="event event-host">
+                    <span>41 </span>
+                     Host Event
+                 </div>
+            </li>
+            <li>
+                <div class="event event-visit">
+                    <span> 45 </span>
+                      VisitEvent 
+                </div>
+            </li>
+        <div class="pauza-separator">Repriza 2</div>
+            <li>
+                <div class="event event-Host">
+                    <span>93 </span>
+                      HostEvent
+                </div>
+            </li>
+    </ul>
+ <hr/>
+
+ <h3 style="color:black">Comments</h3>
+@foreach(var comment in ViewBag.Comments)
+{
+    <div class="card">
+
+        <h5 class="card-header">@comment.User.FirstName @comment.User.LastName</h5>
+        <div class="card-body">
+            <p>@comment.Message</p>
+        </div>
+        <div class="card-footer">
+        <p>at @comment.Date</p>
+            @if(comment.UserId == ViewBag.user.Id || ViewBag.user.Admin==true)
+            {
+                <form action="/Match/DeleteComment/">
+                    <input style="display:none" name="commentId" value="@comment.Id"/>
+                    <input style="display:none" name="matchId" value="@comment.MatchId" />
+
+                    <button class="btn-sm btn-danger">
+                        delete
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+}
+
+<h4 style="color:black">Leave a comment</h4>
+@if (Context.User?.Identity?.IsAuthenticated == true)
+    {
+<button class="btn btn-primary">
+    @Html.ActionLink("AddComment", "AddComment", new { id = Model.Id})
+</button>
+    }
+

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FiiPractivFootball_Web.Models.Club.ClubViewModel>
+
+@{
+  ViewData["Title"] = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h5 {
+        text-align: center;
+    }
+
+    .flag {
+        height: 50px;
+        width: 100px;
+    }
+
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+</style>
+
+<h1>Index</h1>
+
+@if (User?.Identity?.IsAuthenticated == true)
+{
+  <text>
+    Welcome @User.Identity.Name
+    @User.Identity.AuthenticationType
+  </text>
+}
+<h1>Favorite teams</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryFlag)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <img class="logo" src=@Html.DisplayFor(modelItem => item.Logo) />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryName)
+                </td>
+                <td>
+                    <img class="flag" src=@Html.DisplayFor(modelItem => item.CountryFlag) />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
+                    @Html.ActionLink("Delete", "RemoveFavorite", "Club", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

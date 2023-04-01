@@ -1,0 +1,532 @@
+﻿html {
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+main {
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    width: 50%;
+    max-width: 1000px;
+    border-radius: 2rem;
+}
+
+
+/* #region  TABELA DE SCOR */
+
+.afisare-optiuni {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.tabela {
+    font-size: 1rem;
+    margin: 10% 0 1% 0;
+    border-radius: 2rem 2rem 0 0;
+    background: #2C302E;
+}
+
+.competitie {
+    text-align: center;
+    border-radius: 2rem 2rem 0 0;
+    background-color: #5A5D5A;
+    padding: 0.7rem 0;
+}
+
+    .competitie h2 span {
+        font-size: 1.1rem;
+        color: rgb(196, 193, 193);
+    }
+
+.status1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* position:absolute */
+}
+
+    .status1 > div {
+        background-color: #5A5D5A;
+        text-align: center;
+        padding: 0.3rem 1.25rem;
+        border-radius: 0 0 1rem 1rem;
+    }
+
+.middle {
+    /* background-color: green; */
+    padding: 1rem 1rem 0.5rem 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.scor-echipa1, .scor-echipa2 {
+    /* background-color: blanchedalmond; */
+    width: 50%;
+    padding: 0.7rem 0.5rem 1rem;
+}
+
+.tabelaScor {
+    font-size: 1rem;
+    display: block;
+    padding-top: 4%;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.scor-echipa1 {
+    margin-right: 2%;
+}
+
+.scor-echipa2 {
+    margin-left: 2%;
+}
+
+.scor-echipa1 > div {
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.scor-echipa2 > div {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.team-score > div {
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    margin: 0 1rem;
+    color: black;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid black;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.team-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 50%;
+    min-width: 50px;
+    max-width: 100px;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+    .team-logo img {
+        max-width: 60%;
+        max-height: 80%;
+    }
+
+    .team-logo a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.status-ht {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5A5D5A;
+    padding: 0.5rem 0;
+}
+
+    .status-ht > div {
+        background-color: aliceblue;
+        border-radius: 0.5rem;
+        margin: 0 1rem;
+        color: black;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+        .status-ht > div.value {
+            background-color: rgb(121, 229, 137);
+        }
+
+    .status-ht > p {
+        color: #fdcf0c;
+        margin: 0 0.5rem
+    }
+
+.goluri {
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.goluri-stanga, .goluri-dreapta {
+    flex-grow: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabela ul {
+    list-style: none;
+}
+
+.tabela li {
+    vertical-align: middle;
+    background: url(/utils/goal.png) left center no-repeat;
+    background-size: contain;
+    /* background:cover */
+    padding-left: 24px;
+}
+
+
+/* #endregion */
+
+/* #region SECTIUNE Rating*/
+
+.rating-section {
+    width: 100%;
+}
+
+.profil {
+    background: url(jucatori/red.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+    padding: 5% 10%;
+    /* display: inline; */
+    display: flex;
+    margin-bottom: 10%;
+}
+
+.portar {
+    background: url(jucatori/purple.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.antrenor {
+    background: url(jucatori/black.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* #region stanga */
+
+.profil-imagine {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid lightgrey;
+    flex: 1 1;
+    position: relative;
+}
+
+.pozitie {
+    position: absolute;
+    background-color: rgb(50, 46, 46);
+    top: 5%;
+    left: -10%;
+    border-radius: 0.5em;
+    padding: 0.7em 0.7em;
+    /* font-size: 1.5em; */
+}
+
+/* #endregion stanga */
+
+
+/* #region dreapta */
+
+
+.detalii {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%;
+    flex: 1.5 1.5;
+    padding-right: 10%;
+}
+
+.poza img {
+    width: 80%;
+    height: 80%;
+    aspect-ratio: 1 / 1.5;
+    object-fit: cover;
+    border-radius: 2em;
+}
+
+.detalii {
+    padding-left: 10%;
+}
+
+.info-top span:first-of-type {
+    text-transform: uppercase;
+    font-size: 2.2em;
+}
+
+.info-top span:last-of-type {
+    font-size: 1.7em;
+}
+
+.info-note {
+    /* height: 40%; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 100%;
+    width: 100%; */
+}
+
+    form > label {
+        /* display: flex; */
+        transition: 0.4;
+        flex-basis: 15%;
+        flex-grow: 1;
+        /* max-width: 20%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: #fff;
+        color: black;
+        border: 2px solid black;
+        box-shadow: 2px 2px 9px 0px rgba(29,29,29,0.7);
+        font-size: 1.5em;
+        width: 55px;
+        height: 55px;
+        margin-top: 10px;
+        margin-right: 10px;
+        border-radius: 0.5em;
+    }
+
+.info-bottom {
+    margin-top: 2%;
+    margin-right: 10%;
+    /* height:35%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom_motm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+    .bottom_motm label input {
+        transform-origin: center;
+        position: absolute;
+    }
+
+    .bottom_motm label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bottom_motm img {
+        opacity: 0.8;
+        width: 80%;
+        height: 80%;
+    }
+
+    .bottom_motm input[type="radio"] {
+        /* opacity: 0; */
+        width: 0;
+        height: 0;
+    }
+
+.scor {
+    font-size: xx-large;
+}
+
+.pressed {
+    transition: 0.4s;
+    background-color: #e81d1d;
+    color: whitesmoke;
+}
+
+.pressedMotm {
+    overflow: hidden;
+    transition: 0.4s;
+    background-color: rgb(247, 247, 41);
+    color: whitesmoke;
+    box-shadow: 0px 0px 7px 0px rgb(247, 247, 41);
+}
+
+.bottom_motm:hover, form > label:hover {
+    /* overflow: hidden; */
+    cursor: pointer;
+    /* background-color: rgb(223, 223, 223); */
+    box-shadow: 2px 3px 10px -2px rgba(247, 247, 41,0.89);
+    transform: translateY(-1px);
+}
+
+
+/*  #endregion */
+
+/* #endregion */
+
+/* .event span{
+    vertical-align: middle;
+} */
+
+.lists {
+    background-color: #2C302E;
+    padding: 0 0 4rem 0;
+    color: #eee;
+    list-style: none;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.pauza-separator {
+    text-align: center;
+    color: #c8cdcd;
+    /* margin: 0.3rem; */
+    border: 1px solid black;
+    background-color: #6C706C;
+}
+
+.event {
+    margin: 0.4rem 3rem
+}
+
+    .event hr {
+        border: 1px solid black;
+    }
+
+    .event img {
+        margin: 0 0.8rem
+    }
+
+.event-host {
+    display: flex;
+}
+
+.event-visit {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+
+@media(min-width:3000px) {
+    main {
+        color: #fff;
+        width: 80%;
+        max-width: 1250px;
+        border-radius: 2rem;
+    }
+}
+
+@media (max-width:1350px) {
+    .pozitie {
+        font-size: 1rem;
+    }
+
+    .profil {
+        padding-left: 20px;
+        padding-right: 0;
+    }
+
+    .detalii {
+        padding-right: 0;
+        margin: 0;
+    }
+
+    .info-top {
+        margin: 0;
+    }
+}
+
+@media (max-width:900px) {
+
+    main {
+        /* width:80%; */
+/*        width: 90%;*/
+    }
+
+    .tabela {
+        font-size: 1.2rem;
+    }
+
+    .info-top span:first-of-type {
+        /* font-size: 2.2em; */
+        font-size: 1.9rem
+    }
+
+    .info-top span:last-of-type {
+        /* font-size: 1.7em; */
+        font-size: 1.5rem;
+    }
+
+    form > label {
+        height: 45px;
+        width: 45px;
+    }
+
+    /* .info-note>button:last-of-type, form>form>label:last-of-type { */
+    /* padding: 10px 13px; */
+    /* padding: 7px 9px */
+    /* } */
+
+    /* .pozitie span {
+
+        font-size: 0.1rem;
+    } */
+
+    .detalii {
+        padding-right: 1%;
+    }
+}
+
+@media (max-width: 750px) {
+    .tabela {
+        font-size: 0.7rem;
+    }
+
+    main {
+        /* width:80%; */
+        width: 95%;
+    }
+
+    .team-score > div {
+        margin: 0 0.2rem;
+    }
+
+    .middle {
+        /* padding: 1.5em 3em 2em 3em; */
+        padding: 0.6rem 1rem;
+    }
+}

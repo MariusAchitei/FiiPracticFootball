@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "ShowTable";
+}
+
+<h1>ShowTable</h1>
+
+<div class="row">
+                <div class="container mt-3 mb-5 col-10 offset-1">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="pozitie"><a href="">#</a></th>
+                                <th scope="col" class="logo"></th>
+                                <th scope="col" class="nume"></th>
+                                <th scope="col" class="nume">Value</th>
+                                <th scope="col" class="played">MJ</th>
+                                <th scope="col" class="scored">GM</th>
+                                <th scope="col" class="received">GP</th>
+                                <th scope="col" class="puncte">Pct</th>
+                        </thead>
+                        <tbody>
+                            @{int place = 1;}
+                                @foreach(var teamStats in ViewBag.SeasonStats ){
+                                        <tr style="max-height: 10px;">
+                                            <th scope="row">
+                                                @(place++)
+                                            </th>
+                                            <td><a style="margin: auto;" href="/teams/<%= team._id %>">
+                                                    <div
+                                                        style="height: 50px; width: 40px; display: flex; align-items: center; justify-content: center;margin:auto;">
+                                                        <img style="height: 90%; width: 90%; margin-top: auto; object-fit: cover;"
+                                                            src="@teamStats.Club.Logo" alt="@teamStats.Club.Name">
+                                                    </div>
+                                                </a></td>
+                                            <td class="team-name">@teamStats.Club.Name</td>
+                                            <td>
+                                                -Value-
+                                            </td>
+                                            <td>@teamStats.Played</td>
+                                            <td>@teamStats.Scored</td>
+                                            <td>@teamStats.Conceded</td>
+                                            <td>@(teamStats.Won*3+teamStats.Tie)</td>
+                                        </tr>
+                                      }
+                        </tbody>
+                    </table>
+               
+                </div>
+            </div>
+

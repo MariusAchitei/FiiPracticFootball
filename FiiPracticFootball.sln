@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiiPracticFootball", "FiiPracticFootball\FiiPracticFootball.csproj", "{072DA5A1-E594-44CF-819C-139B99CBC9DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiiPractivFootball-Web", "FiiPractivFootball-Web\FiiPractivFootball-Web.csproj", "{B611830C-4BBF-475D-BC75-BC5A27CD6730}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{072DA5A1-E594-44CF-819C-139B99CBC9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072DA5A1-E594-44CF-819C-139B99CBC9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072DA5A1-E594-44CF-819C-139B99CBC9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072DA5A1-E594-44CF-819C-139B99CBC9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B611830C-4BBF-475D-BC75-BC5A27CD6730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B611830C-4BBF-475D-BC75-BC5A27CD6730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B611830C-4BBF-475D-BC75-BC5A27CD6730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B611830C-4BBF-475D-BC75-BC5A27CD6730}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {525D3A60-E0CB-4C27-AA4F-B9F973590166}
+	EndGlobalSection
+EndGlobal
