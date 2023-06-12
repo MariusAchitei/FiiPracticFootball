@@ -11,7 +11,7 @@ Every user can follow their favorite team and comment on any match.
 ## Technologies used
 
 The Back-end was made using the .NET framework in C#
-The Front-end was made using RasorBlade also from .NET
+The Front-end was made using RazorBlade also from .NET
 The data persistance is implemented using SQL_SERVER
 
 ## Screenshots
